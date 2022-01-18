@@ -1,0 +1,101 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{amsmath}  % Matrices
+\usepackage{amsfonts} % Matrices
+\usepackage{booktabs} % Tablas
+\usepackage{paralist} % Enumeracion Horizontal
+\usepackage{enumitem} % Listas
+                                                                                
+\title{Caracterización de la función de razas de perros}
+\author{Esteban Avendaño Forero, Juan David Sarmiento\\
+Sebastian Aristizabal.}
+\date{\today}
+
+                                
+\linespread{1.5}
+<<echo=FALSE>>=
+  options(width=55)
+@
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+<<>>=
+#install.packages("FactoClass")
+library(FactoClass)
+data(DogBreeds)
+a <- DogBreeds[,-7]
+b <- DogBreeds[,7]
+chisq.carac(df=a, cl=b, thr=0)
+@
+\newpage 
+<<>>=
+cluster.carac(a, b, "ca", 2.0)
+@
+
+\newpage 
+\begin{enumerate}
+
+\item Las tres variables que más caracterizan a la función para la cual se
+utilizan las razas son: 
+\begin{inparaenum}[1)]
+\item El peso, 
+\item la afectividad y 
+\item el tamaño.
+\end{inparaenum}
+
+\item La estadística $\chi^2$ asociada a la tabla de contingencia peso × funcion
+es: 24.407
+<<>>=
+library(FactoClass)
+data(DogBreeds)
+attach(DogBreeds)
+weig<-table(WEIG, FUNC)
+weig
+chisq.test(weig, correct = TRUE)
+detach(DogBreeds)
+@
+\item Para encontrar el valor p se utiliza la distribución: $\chi^2$ con (2-1)$\cdot$(3-1)= 2 grados de libertad.
+\item El valor test se puede obtener con el comando de R:
+\end{enumerate}
+Conteste falso o verdadero a las afirmaciones siguientes:
+\begin{enumerate}[resume]
+\item De las razas utilizadas para compañía el 71.4 \% es de afectividad alta.\\
+\textbf{FALSO} - El 71.4 \% de las razas de afectividad alta son utilizadas para 
+compañia.
+\item Todas las razas utilizadas para compañía son de afectividad alta.\\
+\textbf{VERDADERO} - De las tablas, se evidencia que Cat/Class=100.
+\item Todas las razas de afectiividad alta se utilizan para compañía.\\
+\textbf{FALSO} - De las tablas se concluye que el 71.4 \% de las razas de afectividad alta
+se utilizan para compañia.
+\item Hay catorce razas utilizadas para compañía.\\
+\textbf{FALSO} - Hay 10 razas utilizadas para compañia.
+<<>>=
+table(DogBreeds$FUNC)
+@
+\item Hay catorce razas de afectividad alta.\\
+\textbf{VERDADERO}
+<<>>=
+table(DogBreeds$AFFE)
+@
+\item En las razas utilizadas para compañía hay catorce de afectividad alta.\\
+\textbf{FALSO} - Hay 10.
+<<>>=
+table(DogBreeds$AFFE, DogBreeds$FUNC)
+@
+\item Todas las razas pesadas son de utilidad.\\
+\textbf{VERDADERO} - Al observar la tabla se evicencia que Class/Cat=100.
+\item Todas las razas de utilidad son de tamaño grande.\\
+\textbf{VERDADERO} - Al observar la tabla se evicencia que Cat/Class=100.
+\item La velocidad no caracteriza a las razas de caza.\\
+\textbf{VERDADERO} - 
+\item Hay cinco razas de utilidad.\\
+\textbf{FALSO} - Hay 8 razas de utilidad.
+<<echo=FALSE>>=
+table(DogBreeds[,7])
+@
+\end{enumerate}
+
+\end{document}

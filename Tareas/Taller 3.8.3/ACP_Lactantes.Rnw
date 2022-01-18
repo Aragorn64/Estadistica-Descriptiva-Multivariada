@@ -1,0 +1,132 @@
+\documentclass[letterpaper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{amsmath}  % Matrices
+\usepackage{amsfonts} % Matrices
+\usepackage{booktabs} % Tablas
+\usepackage{paralist} % Enumeracion Horizontal
+\usepackage{enumitem} % Listas
+
+\title{ACP ``Lactantes”}
+\author{Sebastian Aristizabal, Esteban Avendaño Forero,\\
+Juan David Sarmiento.}
+\date{\today}
+
+\linespread{1.5}
+
+<<echo=FALSE>>=
+  options(width=55)
+@
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+De Dalgaard (2008) se tomó el ejemplo kfm-Breast-feeding data, cuyos datos
+están en el objeto kfm{ISwR} y son una tabla de 50 filas (bebés de aproxima-
+damente 2 meses) y 6 columnas (Dalgaard, 2020).\\
+
+Las variables continuas son: leche = leche materna consumida por el
+niño: dl/24 horas; peso = peso del niño, kg; tetero = alimentación suple-
+mentaria, ml/24 horas; peso.madre, kg; talla.madre, cm. Se dispone de la
+variable categórica sexo (masculino, femenino). Se plantea realizar un ACP
+que responda a los objetivos siguientes:
+\begin{enumerate}
+
+        \item Descripción de los bebés según su peso, consumo de leche materna
+        y tetero, y su relación con el peso y talla de las madres.
+        \item ¿Está relacionada la alimentación suplementaria (tetero) con las 
+        demás variables?
+        \item ¿Hay diferencias entre niños y niñas?
+        
+\end{enumerate}
+
+Conteste a las siguientes preguntas:
+
+\newpage
+\begin{center}
+\textbf{Preguntas}
+\end{center}
+
+Realice primero un ACP no normado y luego un ACP normado y responda a las 
+preguntas.
+
+\begin{enumerate}
+
+        \item ¿Por qué con el ACP se cumplen los objetivos planteados?
+        
+        \item ¿Realiza un ACP normado o no normado? ¿Por qué?
+        
+        \item Describa el bebé promedio según las cinco variables.
+        
+        \item ¿Cuántos ejes retiene para el análisis? ¿Por qué?
+        
+        \item ¿Qué variables se puede decir que están más altamente correlaciona
+        das con el primer factor? ¿Puede darle algún significado a este primer
+        factor?
+        
+        \item ¿Puede identificar subconjuntos de variables altamente 
+        correlacionas entre sí? ¿Existe algún subconjunto de variables que se
+        pueda decir que no está correlacionado con otro subconjunto de variables?
+        
+        \item ¿Qué características tienen los lactantes según su posición en el 
+        primer plano factorial?
+        
+        \item ¿Los análisis anteriores sugieren que pueden constituirse grupos 
+        de bebés? ¿Podría sugerir algunos?
+        
+        \item ¿Se puede decir que hay diferencia entre niños y niñas en este 
+        análisis? ¿Cuáles son son esas diferencias?
+        
+        \item Escriba un resumen práctico del análisis que satisfaga los
+        objetivos planteados.
+        
+\end{enumerate}
+
+Las preguntas que siguen son sobre lectura y algunos cálculos en el ejemplo 
+``Lactantes”. Responda a los ¿por qué? mencionando la manera cómo dedujo la 
+respuesta: ayuda que utilizó, la gráfica que leyó, etc.
+
+\begin{enumerate}[resume]
+        
+        \item La inercia de las nubes de puntos asociadas al ACP es:
+        
+        \item Primer valor propio:
+        
+        \item Primer vector propio:
+        
+        \item Asdfdsgffdg
+        
+        \item Correlación entre tetero y primer factor:
+        
+        \item Variable que más contribuye al primer eje: ¿Porque?
+        
+        \item ¿Las dos variables menos correlacionadas con tetero son: ¿Porque?
+        
+        \item Variable mejor representada en el primer plano factorial: ¿Porque?
+        
+        \item Coordenadas del bebé promedio sobre el primer plano factorial:
+        
+        \item Los dos bebés que más tetero consumen son:
+        
+        \item Para el bebé situado en el extremo superior del primer plano 
+        factorial escriba las coordenadas sobre los dos primeros ejes factoriales:
+        
+        \item Calcule la contribución del bebé anterior a la inercia del segundo
+        eje factorialy la calidad de representación sobre el mismo eje.
+         
+        \item Escriba las coordenadas de los antiguos ejes unitarios de las 
+        variables \emph{leche} y \emph{tetero} sobre el primer plano factorial.
+        
+        \item Dibuje los antiguos ejes de \emph{leche} y \emph{tetero} sobre el primer plano 
+        factorial, indicando los lados positivos y negativos.
+        
+
+\end{enumerate}
+
+
+
+
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[letterpaper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{amsmath}  % Matrices
+\usepackage{amsfonts} % Matrices
+\usepackage{booktabs} % Tablas
+\usepackage{paralist} % Enumeracion Horizontal
+\usepackage{enumitem} % Listas
+
+\title{Análisis en coordenadas principales}
+\author{Sebastian Aristizabal, Esteban Avendaño Forero,\\
+Juan David Sarmiento.}
+\date{\today}
+
+\linespread{1.5}
+
+<<echo=FALSE>>=
+  options(width=55)
+@
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+En Hidalgo et al. (2007) se construye una distancia cultural entre algunos
+países latinoaméricanos. En la tabla 4.3 se presentan las distancias, que co-
+rresponden a la raíz cuadrada de las presentadas en el artículo.\\
+
+\newpage
+Realice el análisis en coordenadas principales ( ACO ) sobre la matriz de
+distancias, utilizando las funciones dudi.pco e inertia.dudi de ade4 y res-
+ponda a las siguientes preguntas:
+
+\begin{enumerate}
+
+        \item ¿Cuál es la dimensión del espacio de representación?
+        
+        \item ¿Cuántos ejes selecciona para el análisis? ¿Por qué?
+        
+        \item ¿Se pueden obtener ayudas para la interpretación de las variables?
+        
+        \item ¿Algunos países tienen una calidad de representación en el primer
+        plano factorial inferior al 10 \%? ¿Cuáles?
+        
+        \item ¿Qué países tienen una contribución al primer eje por encima del
+        promedio?
+        
+        \item Analice los planos factoriales. Puede utilizar plot.dudi{FactoClass}
+        para graficar los planos factoriales que requiera.
+        
+        \item A partir de los planos factoriales establezca una partición de 
+        los países. Describa comparativamente los grupos de países formados.
+        
+        \item Compare los resultados con los del artículo.
+        
+        \item Haga un resumen práctico del análisis.
+        
+
+\end{enumerate}
+
+
+
+
+\end{document}

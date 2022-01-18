@@ -1,0 +1,173 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{amsmath}  % Matrices
+\usepackage{amsfonts} % Matrices
+\usepackage{booktabs} % Tablas
+                                                                                
+\title{Tarea \#2}
+\author{Esteban Avendaño Forero}
+\date{30 de agosto}
+
+                                
+\linespread{1.5}
+<<echo=FALSE>>=
+  options(width=55)
+@
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Instale R y a partir del manual de introducción conteste:
+\begin{enumerate}
+\item[2.1] ¿En R hay diferencia entre mayúsculas y minúsculas?\\
+Si, R si diferencia entre las mayusculas y las minusculas. Por ejemplo, la 
+variable a es diferente a la variable A.
+\item[2.2] ¿Con qué se separan las instrucciones de R?\\
+Si uno va a relizar varias instrucciones seguidas en R, se debe separar cada 
+instruccion con un punto y coma (;) entre ellas.
+\item[2.3] ¿Cómo se escriben comentarios en R?\\
+Los comentarios en R se pueden escribir con el simbolo \# antes del comentario.
+\item[2.4] ¿Qué significa cuando aparece + luego de teclear Enter?\\
+Cuando aparece el simbolo + luego de teclear enter, significa que el programa 
+esta esperando algun otro comando para terminar de ejecutar la orden dada.
+\item[2.5] ¿Cómo se recuerdan comandos tecleados previamente en R?\\
+Para recordar los comandos previamente utilizados en R, se debe utilizar la 
+flecha hacia arriba y automaticamente aparecerean los comandos utilizados 
+anteriormente.
+\item[2.6] ¿Qué es el workspace?\\
+El workspace es el entorno de trabajo donde se esta utilizando en programa R; 
+aqui se almacenan los objetos definidos por el usuario (vectores, matrices, 
+entre otros).
+\item[2.7] ¿Qué se almacena en .RData?, ¿qué en .Rhistory?\\
+En los archivos .RData se pueden almacenar los objetos que el usuario decida 
+tales como dataframes, matrices, vectores, entre otros. En el caso de .Rhistory,
+este archivo almacena el historial de comandos ejecutados por el usuario en una 
+sesion.
+\item[2.8] ¿Cómo se obtiene ayuda en R para una función específica?\\
+Para obtener ayuda para una funcion especifica en R, se puede utilizar el signo
+de interrogacion previo a la funcion (?mean()), o con ayuda de help().
+\item[2.9] ¿Cuáles son los símbolos de comparación en R: menor que, menor o 
+igual, mayor, mayor o igual, igual y diferente?\\
+Menor: <, Menor o Igual: <=, Mayor: >, Mayor o Igual: >=, Diferente: != . 
+\item[2.10] ¿Cuáles son los operadores lógicos: OR , AND y negación?\\
+OR: |, AND: \&, Negacion: !.
+\item[2.11] ¿Qué efecto tienen  al imprimir una cadena de caracteres?
+\item[2.12] ¿Cuáles son los principales objetos de R?\\
+Los principales objetos en R son vectores, matrices, listas, funciones, 
+dataframes.
+\item[2.13] ¿Cómo se define un escalar en R?\\
+Para definir un escalar en R, hay que definirlo y declararlo dentro de una 
+variable. Por ejemplo, para definir el escalar 5 con la letra a, debemos 
+definirlo con el signo igual (a=5) o con una flecha (a <- 5).
+\item[2.14] ¿Qué es un factor y qué atributos tiene?\\
+Un factor es un objeto de R que se utiliza para categorizar los datos y 
+almacenarlos en diferentes niveles. Se pueden almacenar tanto caracteres como 
+numeros.
+\item[2.15] ¿Qué hace la función tapply ?\\
+La funcion tapply permite aplicar una funcion a los componentes de un vector, 
+utilizando un parametro determinado. 
+\end{enumerate}
+
+\item Escriba para cada instrucción un comentario resumiendo lo que hace
+cada función:
+\begin{enumerate}
+\item[3.1] help.start():\\
+Abre el manual de ayuda de R, donde se pueden consultar los manuales, referencias 
+y material adicional.
+\item[3.2] sink("record.lis")\\
+La funcion sink("record.lis") guardara la salida del programa en el archivo 
+llamado record.lis.
+\item[3.3] misdatos <-read.table('data.dat'):\\ 
+Lee los datos de la tabla data.dat y los almacena en una variable llamada mis 
+datos.
+\item[3.4] L2 <- list(A=x, B=y):\\
+Crea una variable L2, la cual es una lista con los elementos A y B.
+\item[3.5] ts(1:47, frequency = 12, start = c(1959, 2))
+\item[3.6] exp1 <- expression(x /(y + exp(z)))
+\item[3.7] x <- rpois(40, lambda=5):\\
+Crea un vector x cuyas componentes son 40 numeros generados aleatoriamente 
+provenientes de una distribucion Poission con parametro $\lambda$=5.
+\item[3.8] x[x \%\%2 == 0]\\
+Aqui se comprueba cuales numeros del vector x modulo 2 dan residuo de 0, y se 
+devuelven aquellos numeros que cumplen con esa condicion.
+\item[3.9] x <- rnorm(50)\\
+Crea un vector x cuyas componentes son 50 numeros generados aleatoriamente 
+provenientes de una distribucion Normal con media 0 y desviacion estandar 1.
+\item[3.10] mean(x)\\
+Aqui se obtiene la media del vector x.
+\end{enumerate}
+
+\item Suponga que usted es la consola de R. Responda al frente a cada uno
+de los comandos:
+\begin{enumerate}
+\item[4.1] 0/0
+
+<<echo=FALSE>>=
+0/0
+@
+
+\item[4.2] labs <- paste(c('X','Y'), 1:10, sep='');labs
+
+<<echo=FALSE>>=
+labs <- paste(c('X','Y'), 1:10, sep='');labs
+@
+
+\item[4.3] c("x","y")[rep(c(1,2,2,1), times=4)]
+
+<<echo=FALSE>>=
+c("x","y")[rep(c(1,2,2,1), times=4)]
+@
+
+\item[4.4] ls()
+
+<<echo=FALSE>>=
+ls()
+@
+
+\item[4.5] apropos("eigen")
+
+<<echo=FALSE>>=
+apropos("eigen")
+@
+
+\item[4.6] x <- 1; mode(x)
+<<echo=FALSE>>=
+x <- 1; mode(x)
+@
+
+\item[4.7] seq(1, 5, 0.5)
+<<echo=FALSE>>=
+seq(1, 5, 0.5)
+@
+
+\item[4.8] gl(3, 5)
+<<echo=FALSE>>=
+gl(3, 5)
+@
+
+\item[4.9] expand.grid(a=c(60,80), p=c(100, 300),\\
+sexo=c("Macho", "Hembra"))-> trat\\
+trat;dim(trat);class(trat)
+
+<<echo=FALSE>>=
+expand.grid(a=c(60,80), p=c(100, 300),
+sexo=c("Macho", "Hembra"))-> trat
+trat
+dim(trat);class(trat)
+@
+
+\item[4.10] v <- c(10, 20, 30);diag(v)
+<<echo=FALSE>>=
+v <- c(10, 20, 30);diag(v)
+@
+
+\end{enumerate}
+\end{enumerate}
+
+
+\end{document}
+

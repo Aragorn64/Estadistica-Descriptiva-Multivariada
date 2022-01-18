@@ -1,0 +1,194 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{amsmath}  % Matrices
+\usepackage{amsfonts} % Matrices
+\usepackage{booktabs} % Tablas
+\usepackage{paralist} % Enumeracion Horizontal
+\usepackage{enumitem} % Listas
+                                                                                
+\title{Caracterización de la función de razas de perros}
+\author{Esteban Avendaño Forero, Juan David Sarmiento\\
+Sebastian Aristizabal.}
+\date{\today}
+
+                                
+\linespread{1.5}
+\usepackage{Sweave}
+\begin{document}
+\input{Taller2-concordance}
+
+\maketitle
+
+\begin{Schunk}
+\begin{Sinput}
+> #install.packages("FactoClass")
+> library(FactoClass)
+> data(DogBreeds)
+> a <- DogBreeds[,-7]
+> b <- DogBreeds[,7]
+> chisq.carac(df=a, cl=b, thr=0)
+\end{Sinput}
+\begin{Soutput}
+          chi2 dfr         pval      tval      phi2
+WEIG 24.407143   4 6.618319e-05 3.8220136 0.9039683
+AFFE 14.760989   2 6.232926e-04 3.2280010 0.5467033
+SIZE 16.354286   4 2.578811e-03 2.7970208 0.6057143
+AGGR  7.072665   2 2.911993e-02 1.8938881 0.2619505
+SPEE  8.483333   4 7.539403e-02 1.4367534 0.3141975
+INTE  4.140385   4 3.873401e-01 0.2862584 0.1533476
+\end{Soutput}
+\end{Schunk}
+\newpage 
+\begin{Schunk}
+\begin{Sinput}
+> cluster.carac(a, b, "ca", 2.0)
+\end{Sinput}
+\begin{Soutput}
+class: com
+         Test.Value p.Value Class.Cat Cat.Class Global
+AFFE.hig      3.849   0.000      71.4       100   51.9
+WEIG.lig      3.308   0.001      87.5        70   29.6
+SIZE.sma      2.866   0.004      85.7        60   25.9
+SIZE.lar     -3.541   0.000       6.7        10   55.6
+AFFE.low     -3.849   0.000       0.0         0   48.1
+         Weight
+AFFE.hig     14
+WEIG.lig      8
+SIZE.sma      7
+SIZE.lar     15
+AFFE.low     13
+----------------------------------------- 
+class: hun
+         Test.Value p.Value Class.Cat Cat.Class Global
+WEIG.med      2.621   0.009      57.1      88.9   51.9
+AFFE.low      2.082   0.037      53.8      77.8   48.1
+AFFE.hig     -2.082   0.037      14.3      22.2   51.9
+         Weight
+WEIG.med     14
+AFFE.low     13
+AFFE.hig     14
+----------------------------------------- 
+class: uti
+         Test.Value p.Value Class.Cat Cat.Class Global
+WEIG.hea      3.392   0.001     100.0      62.5   18.5
+SIZE.lar      2.978   0.003      53.3     100.0   55.6
+AGGR.hig      2.530   0.011      53.8      87.5   48.1
+WEIG.lig     -2.120   0.034       0.0       0.0   29.6
+SPEE.med     -2.120   0.034       0.0       0.0   29.6
+AGGR.low     -2.530   0.011       7.1      12.5   51.9
+         Weight
+WEIG.hea      5
+SIZE.lar     15
+AGGR.hig     13
+WEIG.lig      8
+SPEE.med      8
+AGGR.low     14
+\end{Soutput}
+\end{Schunk}
+
+\newpage 
+\begin{enumerate}
+
+\item Las tres variables que más caracterizan a la función para la cual se
+utilizan las razas son: 
+\begin{inparaenum}[1)]
+\item El peso, 
+\item la afectividad y 
+\item el tamaño.
+\end{inparaenum}
+
+\item La estadística $\chi^2$ asociada a la tabla de contingencia peso × funcion
+es: 24.407
+\begin{Schunk}
+\begin{Sinput}
+> library(FactoClass)
+> data(DogBreeds)
+> attach(DogBreeds)
+> weig<-table(WEIG, FUNC)
+> weig
+\end{Sinput}
+\begin{Soutput}
+     FUNC
+WEIG  com hun uti
+  hea   0   0   5
+  lig   7   1   0
+  med   3   8   3
+\end{Soutput}
+\begin{Sinput}
+> chisq.test(weig, correct = TRUE)
+\end{Sinput}
+\begin{Soutput}
+	Pearson's Chi-squared test
+
+data:  weig
+X-squared = 24.407, df = 4, p-value = 6.618e-05
+\end{Soutput}
+\begin{Sinput}
+> detach(DogBreeds)
+\end{Sinput}
+\end{Schunk}
+\item Para encontrar el valor p se utiliza la distribución: $\chi^2$ con (2-1)$\cdot$(3-1)= 2 grados de libertad.
+\item El valor test se puede obtener con el comando de R:
+\end{enumerate}
+Conteste falso o verdadero a las afirmaciones siguientes:
+\begin{enumerate}[resume]
+\item De las razas utilizadas para compañía el 71.4 \% es de afectividad alta.\\
+\textbf{FALSO} - El 71.4 \% de las razas de afectividad alta son utilizadas para 
+compañia.
+\item Todas las razas utilizadas para compañía son de afectividad alta.\\
+\textbf{VERDADERO} - De las tablas, se evidencia que Cat/Class=100.
+\item Todas las razas de afectiividad alta se utilizan para compañía.\\
+\textbf{FALSO} - De las tablas se concluye que el 71.4 \% de las razas de afectividad alta
+se utilizan para compañia.
+\item Hay catorce razas utilizadas para compañía.\\
+\textbf{FALSO} - Hay 10 razas utilizadas para compañia.
+\begin{Schunk}
+\begin{Sinput}
+> table(DogBreeds$FUNC)
+\end{Sinput}
+\begin{Soutput}
+com hun uti 
+ 10   9   8 
+\end{Soutput}
+\end{Schunk}
+\item Hay catorce razas de afectividad alta.\\
+\textbf{VERDADERO}
+\begin{Schunk}
+\begin{Sinput}
+> table(DogBreeds$AFFE)
+\end{Sinput}
+\begin{Soutput}
+hig low 
+ 14  13 
+\end{Soutput}
+\end{Schunk}
+\item En las razas utilizadas para compañía hay catorce de afectividad alta.\\
+\textbf{FALSO} - Hay 10.
+\begin{Schunk}
+\begin{Sinput}
+> table(DogBreeds$AFFE, DogBreeds$FUNC)
+\end{Sinput}
+\begin{Soutput}
+      com hun uti
+  hig  10   2   2
+  low   0   7   6
+\end{Soutput}
+\end{Schunk}
+\item Todas las razas pesadas son de utilidad.\\
+\textbf{VERDADERO} - Al observar la tabla se evicencia que Class/Cat=100.
+\item Todas las razas de utilidad son de tamaño grande.\\
+\textbf{VERDADERO} - Al observar la tabla se evicencia que Cat/Class=100.
+\item La velocidad no caracteriza a las razas de caza.\\
+\textbf{VERDADERO} - 
+\item Hay cinco razas de utilidad.\\
+\textbf{FALSO} - Hay 8 razas de utilidad.
+\begin{Schunk}
+\begin{Soutput}
+com hun uti 
+ 10   9   8 
+\end{Soutput}
+\end{Schunk}
+\end{enumerate}
+
+\end{document}
