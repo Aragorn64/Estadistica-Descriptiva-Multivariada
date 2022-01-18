@@ -1,3 +1,6 @@
+getwd()
+setwd("/home/bicho/Dropbox/PC/Documents/UNAL/Estadistica Descriptiva Multivariada/Proyecto_Final_2021-2")
+
 library(readr)
 wine <- read_csv("winequality-red.csv", 
                  col_types = cols(`fixed acidity` = col_number(), 
